@@ -1,0 +1,103 @@
+story 1: AC1
+
+//given
+Car, boy, lot
+//when
+park boy get ticket
+//then
+park boy fetch car
+
+story 1: AC2
+
+//given
+Cars, boy, lot
+//when
+park boy get one ticket
+//then
+park boy fetch right car
+
+AC3
+
+//given
+boy, car
+//when
+park boy get wrong ticket/no ticket
+//then
+no car fetch
+
+AC4
+boy, car
+//when
+park boy find ticket = used
+//then
+no car fetch
+
+AC5
+lot, car, boy
+//when
+boy park with lot no position
+//then
+no get ticket
+
+Story 2
+AC1
+boy, car
+boy get wrong ticket/used
+//when
+query error
+//then
+get the message
+
+AC2
+boy, car
+boy not recieve ticket
+//when
+query error
+//then
+return msg
+
+AC3
+boy, car
+no empty lot
+//when
+query error
+//then
+return msg
+
+Story 3
+AC1
+lot, car, boy
+empty next lot
+//when
+park
+//then
+next lot
+
+AC2
+lot, car, boy
+full park lot
+//when
+park
+//then
+next park
+
+Story 4
+AC1
+lot, car, smart boy
+//when
+park
+//then
+most empty lot
+
+Story 5
+AC1
+lot, car , super smart
+//when
+park
+//then
+most empty %
+
+
+Story 6
+AC1
+
