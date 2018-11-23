@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ParkingBoyFacts {
     @Test
+    //Story1 AC1
     void should_park_a_car_to_a_parking_lot_and_get_it_back() {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
@@ -20,7 +21,7 @@ class ParkingBoyFacts {
 
         assertSame(fetched, car);
     }
-
+    //Story 1 AC2
     @Test
     void should_park_multiple_cars_to_a_parking_lot_and_get_them_back() {
         ParkingLot parkingLot = new ParkingLot();
@@ -37,7 +38,7 @@ class ParkingBoyFacts {
         assertSame(firstCar, fetchedByFirstTicket);
         assertSame(secondCar, fetchedBySecondTicket);
     }
-
+    // Story 1 AC3
     @Test
     void should_not_fetch_any_car_once_ticket_is_wrong() {
         ParkingLot parkingLot = new ParkingLot();
@@ -50,7 +51,7 @@ class ParkingBoyFacts {
         assertNull(parkingBoy.fetch(wrongTicket));
         assertSame(car, parkingBoy.fetch(ticket));
     }
-
+    //Story 2 AC1
     @Test
     void should_query_message_once_the_ticket_is_wrong() {
         ParkingLot parkingLot = new ParkingLot();
@@ -76,7 +77,7 @@ class ParkingBoyFacts {
         assertNotNull(ticket);
         assertNull(parkingBoy.getLastErrorMessage());
     }
-
+    // Story 2 AC2
     @Test
     void should_not_fetch_any_car_once_ticket_is_not_provided() {
         ParkingLot parkingLot = new ParkingLot();
@@ -100,7 +101,7 @@ class ParkingBoyFacts {
             "Please provide your parking ticket.",
             parkingBoy.getLastErrorMessage());
     }
-
+    // Story 1 AC4
     @Test
     void should_not_fetch_any_car_once_ticket_has_been_used() {
         ParkingLot parkingLot = new ParkingLot();
@@ -112,7 +113,7 @@ class ParkingBoyFacts {
 
         assertNull(parkingBoy.fetch(ticket));
     }
-
+    // Story 2 AC1
     @Test
     void should_query_error_message_for_used_ticket() {
         ParkingLot parkingLot = new ParkingLot();
@@ -128,7 +129,7 @@ class ParkingBoyFacts {
             parkingBoy.getLastErrorMessage()
         );
     }
-
+    // Story 1 AC5
     @Test
     void should_not_park_cars_to_parking_lot_if_there_is_not_enough_position() {
         final int capacity = 1;
@@ -139,7 +140,7 @@ class ParkingBoyFacts {
 
         assertNull(parkingBoy.park(new Car()));
     }
-
+    //Story 2 AC3
     @Test
     void should_get_message_if_there_is_not_enough_position() {
         final int capacity = 1;
