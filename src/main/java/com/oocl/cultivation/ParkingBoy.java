@@ -12,6 +12,7 @@ public class ParkingBoy {
     public ParkingTicket park(Car car) {
         ParkingTicket ticket = new ParkingTicket();
         if (parkingLot.getAvailableParkingPosition()<=0){
+            this.lastErrorMessage = "The parking lot is full.";
             return null;
         }else {
             this.parkingLot.parkCar(car, ticket);
