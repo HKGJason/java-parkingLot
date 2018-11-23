@@ -17,12 +17,16 @@ public class ParkingBoy {
     }
 
     public Car fetch(ParkingTicket ticket) {
-
+        if (ticket.equals(null)){
+            this.lastErrorMessage = "Please provide your parking ticket.";
+            return null;
+        }
         Car car = this.parkingLot.fetch(ticket);
-        if (car.equals(null))
+        if (car.equals(null)) {
             this.lastErrorMessage = "Unrecognized parking ticket.";
-        else
-            this.lastErrorMessage = null;
+            return null;
+        }
+        this.lastErrorMessage = null;
         return car;
     }
 
