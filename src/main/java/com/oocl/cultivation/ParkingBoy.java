@@ -11,8 +11,11 @@ public class ParkingBoy {
 
     public ParkingTicket park(Car car) {
         ParkingTicket ticket = new ParkingTicket();
-        this.parkingLot.parkCar(car, ticket);
-
+        if (parkingLot.getAvailableParkingPosition()<=0){
+            return null;
+        }else {
+            this.parkingLot.parkCar(car, ticket);
+        }
         return ticket;
     }
 

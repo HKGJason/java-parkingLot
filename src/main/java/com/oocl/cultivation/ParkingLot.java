@@ -22,7 +22,6 @@ public class ParkingLot {
         cars.remove(ticket);
         return car;
     }
-
     public int getAvailableParkingPosition() {
         return cars.size() - capacity;
     }
