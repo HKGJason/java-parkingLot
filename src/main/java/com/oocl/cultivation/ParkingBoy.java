@@ -14,11 +14,15 @@ public class ParkingBoy {
     public void setLastErrorMessage(String msg){
         this.lastErrorMessage = msg;
     }
-
+    public List<ParkingLot> getParkingLot(){
+        return this.parkingLot;
+    }
     public ParkingLot getCurrentParkingLot() {
         return currentParkingLot;
     }
-
+    public void setCurrentParkingLot(ParkingLot lot){
+        this.currentParkingLot = lot;
+    }
     public ParkingTicket park(Car car) {
         ParkingTicket ticket = new ParkingTicket();
         this.currentParkingLot = checkEmptyLot();

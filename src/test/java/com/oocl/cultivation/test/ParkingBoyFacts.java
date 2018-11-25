@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.ParkingTicket;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.*;
 
@@ -166,6 +163,17 @@ class ParkingBoyFacts {
         parkingBoy.park(new Car());
         parkingBoy.park(new Car());
         assertSame(parkingLot2, parkingBoy.getCurrentParkingLot());
+
+    }
+    //Story 4
+    @Test
+    void test_smart_park_boy_on_select_lot(){
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(2);
+        SmartParkingBoy boy = new SmartParkingBoy(parkingLot1);
+        boy.manageLot(parkingLot2);
+        boy.park(new Car());
+        assertSame(parkingLot2, boy.getCurrentParkingLot());
 
     }
 
