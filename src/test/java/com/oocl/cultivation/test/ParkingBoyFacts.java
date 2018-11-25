@@ -4,6 +4,9 @@ import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ParkingBoyFacts {
@@ -214,17 +217,20 @@ class ParkingBoyFacts {
     }
     @Test
     void test_manager_report_error(){
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
-        ParkingManager m1 = new ParkingManager(parkingBoy);
+        ParkingManager m1 = new ParkingManager();
+        m1.addParkingBoy(parkingBoy);
         ParkingTicket ticket = m1.instructPark(parkingBoy, car);
-        parkingBoy.fetch(ticket);
-        parkingBoy.fetch(ticket);
+        m1.instructFetch(parkingBoy,ticket);
+        m1.instructFetch(parkingBoy,ticket);
 
         assertEquals(
-                "Unrecognized parking ticket.",
-                m1.getLastErrorMessage()
+                "Unrecognized parking ticket."+System.getProperty("line.separator"),
+                outContent.toString()
         );
     }
 

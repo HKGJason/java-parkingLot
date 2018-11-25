@@ -7,7 +7,7 @@ public class ParkingBoy {
     private ParkingLot currentParkingLot;
     private String lastErrorMessage;
     private List<ParkingLot> parkingLot = new ArrayList<>();
-
+    public ParkingBoy(){}
     public ParkingBoy(ParkingLot parkingLot) {
         this.parkingLot.add(parkingLot);
     }
