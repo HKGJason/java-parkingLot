@@ -100,4 +100,24 @@ most empty %
 
 Story 6
 AC1
+boy, car
+//when
+specify boy
+//then
+boy can park / fetch
+
+AC2
+lot,car
+//when
+park, fetch
+//then 
+equal basic boy function
+
+AC3
+boy, car
+//when
+boy error
+//then
+get error msg
+
 
