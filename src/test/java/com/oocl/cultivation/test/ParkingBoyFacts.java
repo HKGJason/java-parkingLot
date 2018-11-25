@@ -188,5 +188,44 @@ class ParkingBoyFacts {
         boy.park(new Car());
         assertSame(p2, boy.getCurrentParkingLot());
     }
+    //Story 6 AC1
+    @Test
+    void test_manager_instruct_boy_park_and_fetch(){
+        ParkingLot p1 = new ParkingLot(5);
+        ParkingBoy b1 = new ParkingBoy(p1);
+        ParkingManager m1 = new ParkingManager();
+        Car car = new Car();
+        m1.addParkingBoy(b1);
+        ParkingTicket ticket = m1.instructPark(b1, car);
+        Car fetched = m1.instructFetch(b1, ticket);
+
+        assertSame(car, fetched);
+
+    }
+    @Test
+    void test_manager_park_and_fetch(){
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingManager m1 = new ParkingManager(parkingLot);
+        Car car = new Car();
+
+        ParkingTicket ticket = m1.park(car);
+        Car fetched = m1.fetch(ticket);
+        assertSame(car, fetched);
+    }
+    @Test
+    void test_manager_report_error(){
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+        ParkingManager m1 = new ParkingManager(parkingBoy);
+        ParkingTicket ticket = m1.instructPark(parkingBoy, car);
+        parkingBoy.fetch(ticket);
+        parkingBoy.fetch(ticket);
+
+        assertEquals(
+                "Unrecognized parking ticket.",
+                m1.getLastErrorMessage()
+        );
+    }
 
 }
