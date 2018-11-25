@@ -155,7 +155,7 @@ class ParkingBoyFacts {
     }
 
     //Story 3 AC1
-    /*
+    @Test
     void test_park_next_lot_when_init_lot_full(){
         final int capacity = 1;
         ParkingLot parkingLot1 = new ParkingLot(capacity);
@@ -166,5 +166,5 @@ class ParkingBoyFacts {
         parkingBoy.park(new Car());
 
     }
-    */
+
 }
