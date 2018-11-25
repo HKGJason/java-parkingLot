@@ -31,4 +31,8 @@ public class ParkingLot {
     public int getEmptyLotCount(){
         return capacity - cars.size();
     }
+    public int getCapacity(){
+        return capacity;
+    }
+
 }
