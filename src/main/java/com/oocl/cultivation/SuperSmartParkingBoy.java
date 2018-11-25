@@ -24,11 +24,11 @@ public class SuperSmartParkingBoy extends ParkingBoy {
 
     private ParkingLot findMostEmptyPercentage(List<ParkingLot> lots) {
         ParkingLot lot = lots.get(0);
-        double emptyRateCurrent;
-        double emptyRateBefore;
+        float emptyRateCurrent;
+        float emptyRateBefore;
         for (ParkingLot p: lots){
-            emptyRateBefore = lot.getEmptyLotCount() / lot.getCapacity();
-            emptyRateCurrent = p.getEmptyLotCount() / p.getCapacity();
+            emptyRateBefore = (lot.getEmptyLotCount()*100.0f) / (lot.getCapacity()*100.0f);
+            emptyRateCurrent = (p.getEmptyLotCount()*100.0f) / (p.getCapacity()*100.0f);
             if (p.getEmptyLotCount()>0 && emptyRateCurrent>emptyRateBefore){
                 lot = p;
             }
