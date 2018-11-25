@@ -5,6 +5,7 @@ import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ParkingLot;
 import com.oocl.cultivation.ParkingTicket;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,8 +19,8 @@ class ParkingBoyFacts {
 
         ParkingTicket ticket = parkingBoy.park(car);
         Car fetched = parkingBoy.fetch(ticket);
+        assertSame(car, fetched);
 
-        assertSame(fetched, car);
     }
     //Story 1 AC2
     @Test
@@ -152,4 +153,18 @@ class ParkingBoyFacts {
 
         assertEquals("The parking lot is full.", parkingBoy.getLastErrorMessage());
     }
+
+    //Story 3 AC1
+    /*
+    void test_park_next_lot_when_init_lot_full(){
+        final int capacity = 1;
+        ParkingLot parkingLot1 = new ParkingLot(capacity);
+        ParkingLot parkingLot2 = new ParkingLot(capacity);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot1);
+        parkingBoy.manageLot(parkingLot2);
+
+        parkingBoy.park(new Car());
+
+    }
+    */
 }

@@ -19,10 +19,16 @@ public class ParkingLot {
 
     public Car fetch(ParkingTicket ticket){
         Car car = cars.get(ticket);
-        cars.remove(ticket);
-        return car;
+        if (car!=null) {
+            cars.remove(ticket);
+            return car;
+        }
+        return null;
     }
     public int getAvailableParkingPosition() {
         return cars.size() - capacity;
+    }
+    public int getEmptyLotCount(){
+        return capacity - cars.size();
     }
 }
