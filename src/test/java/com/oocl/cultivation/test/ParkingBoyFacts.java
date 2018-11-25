@@ -164,6 +164,8 @@ class ParkingBoyFacts {
         parkingBoy.manageLot(parkingLot2);
 
         parkingBoy.park(new Car());
+        parkingBoy.park(new Car());
+        assertSame(parkingLot2, parkingBoy.getCurrentParkingLot());
 
     }
 
