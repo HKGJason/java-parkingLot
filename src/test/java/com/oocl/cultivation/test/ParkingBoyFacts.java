@@ -152,7 +152,7 @@ class ParkingBoyFacts {
 
         assertEquals("The parking lot is full.", parkingBoy.getLastErrorMessage());
     }
-
+/*
     //Story 3 AC1
     @Test
     void test_park_next_lot_when_init_lot_full(){
@@ -167,7 +167,23 @@ class ParkingBoyFacts {
         assertSame(parkingLot2, parkingBoy.getCurrentParkingLot());
 
     }
+*/
+//Story 3 AC1
+    @Test
+    void test_park_and_fetch_next_lot_when_first_lot_full(){
+        final int capacity = 1;
+        ParkingLot parkingLot1 = new ParkingLot(capacity);
+        ParkingLot parkingLot2 = new ParkingLot(capacity);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot1);
+        parkingBoy.manageLot(parkingLot2);
+        Car car2 = new Car();
+        parkingBoy.park(new Car());
+        ParkingTicket ticket = parkingBoy.park(car2);
+        assertSame(car2, parkingBoy.fetch(ticket));
 
+
+
+    }
 
 
 

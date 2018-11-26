@@ -14,7 +14,7 @@ public class ParkingBoy {
     public void setLastErrorMessage(String msg){
         this.lastErrorMessage = msg;
     }
-    public List<ParkingLot> getParkingLot(){
+    List<ParkingLot> getParkingLot(){
         return this.parkingLot;
     }
     public ParkingLot getCurrentParkingLot() {
