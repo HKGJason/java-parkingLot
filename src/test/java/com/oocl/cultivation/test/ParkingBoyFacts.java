@@ -178,18 +178,7 @@ class ParkingBoyFacts {
         assertSame(parkingLot2, boy.getCurrentParkingLot());
 
     }
-    //Story 5
-    @Test
-    void test_super_park_boy_on_select_lot(){
-        ParkingLot p1 = new ParkingLot(5);
-        ParkingLot p2 = new ParkingLot(10);
-        SuperSmartParkingBoy boy = new SuperSmartParkingBoy(p1);
-        boy.manageLot(p2);
-        boy.park(new Car());
-        boy.park(new Car());
-        boy.park(new Car());
-        assertSame(p2, boy.getCurrentParkingLot());
-    }
+
 
 
 }
