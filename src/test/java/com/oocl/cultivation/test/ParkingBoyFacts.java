@@ -2,7 +2,6 @@ package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

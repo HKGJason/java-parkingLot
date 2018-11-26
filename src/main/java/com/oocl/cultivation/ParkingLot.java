@@ -25,9 +25,6 @@ public class ParkingLot {
         }
         return null;
     }
-    public int getAvailableParkingPosition() {
-        return cars.size() - capacity;
-    }
     public int getEmptyLotCount(){
         return capacity - cars.size();
     }
