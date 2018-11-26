@@ -13,13 +13,13 @@ public class ParkingManagerTest {
     //Story 6 AC1
     @Test
     void test_manager_instruct_boy_park_and_fetch(){
-        ParkingLot p1 = new ParkingLot(5);
-        ParkingBoy b1 = new ParkingBoy(p1);
-        ParkingManager m1 = new ParkingManager();
+        ParkingLot parkingLot = new ParkingLot(5);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingManager parkingManager = new ParkingManager();
         Car car = new Car();
-        m1.addParkingBoy(b1);
-        ParkingTicket ticket = m1.instructPark(b1, car);
-        Car fetched = m1.instructFetch(b1, ticket);
+        parkingManager.addParkingBoy(parkingBoy);
+        ParkingTicket ticket = parkingManager.instructPark(parkingBoy, car);
+        Car fetched = parkingManager.instructFetch(parkingBoy, ticket);
 
         assertSame(car, fetched);
 
@@ -27,11 +27,11 @@ public class ParkingManagerTest {
     @Test
     void test_manager_park_and_fetch(){
         ParkingLot parkingLot = new ParkingLot();
-        ParkingManager m1 = new ParkingManager(parkingLot);
+        ParkingManager parkingManager = new ParkingManager(parkingLot);
         Car car = new Car();
 
-        ParkingTicket ticket = m1.park(car);
-        Car fetched = m1.fetch(ticket);
+        ParkingTicket ticket = parkingManager.park(car);
+        Car fetched = parkingManager.fetch(ticket);
         assertSame(car, fetched);
     }
     @Test
@@ -41,11 +41,11 @@ public class ParkingManagerTest {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
-        ParkingManager m1 = new ParkingManager();
-        m1.addParkingBoy(parkingBoy);
-        ParkingTicket ticket = m1.instructPark(parkingBoy, car);
-        m1.instructFetch(parkingBoy,ticket);
-        m1.instructFetch(parkingBoy,ticket);
+        ParkingManager parkingManager = new ParkingManager();
+        parkingManager.addParkingBoy(parkingBoy);
+        ParkingTicket ticket = parkingManager.instructPark(parkingBoy, car);
+        parkingManager.instructFetch(parkingBoy,ticket);
+        parkingManager.instructFetch(parkingBoy,ticket);
 
         assertEquals(
                 "Unrecognized parking ticket."+System.getProperty("line.separator"),
