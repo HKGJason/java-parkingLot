@@ -17,9 +17,6 @@ public class ParkingBoy {
     List<ParkingLot> getParkingLot(){
         return this.parkingLot;
     }
-    public ParkingLot getCurrentParkingLot() {
-        return currentParkingLot;
-    }
     public void setCurrentParkingLot(ParkingLot lot){
         this.currentParkingLot = lot;
     }
