@@ -25,10 +25,10 @@ public class ParkingLot {
         }
         return null;
     }
-    public int getEmptyLotCount(){
+    int getEmptyLotCount(){
         return capacity - cars.size();
     }
-    public int getCapacity(){
+    int getCapacity(){
         return capacity;
     }
 
