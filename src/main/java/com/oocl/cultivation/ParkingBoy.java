@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {
+    private ParkingManager parkingManager;
+
     private ParkingLot currentParkingLot;
     private String lastErrorMessage;
     private List<ParkingLot> parkingLot = new ArrayList<>();
-    public ParkingBoy(){}
+    ParkingBoy(ParkingManager parkingManager){this.parkingManager = parkingManager;}
     public ParkingBoy(ParkingLot parkingLot) {
         this.parkingLot.add(parkingLot);
     }

@@ -8,13 +8,24 @@ import com.oocl.cultivation.ParkingTicket;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingManager extends ParkingBoy {
+public class ParkingManager{
     private List<ParkingBoy> allBoy = new ArrayList<>();
+    private ParkingBoy parkingBoy;
     public ParkingManager(ParkingLot lot){
-        super(lot);
+        this.parkingBoy = new ParkingBoy(this);
+        parkingBoy.manageLot(lot);
     }
     public ParkingManager(){}
 
+    public ParkingTicket park(Car car){
+        ParkingTicket ticket = this.parkingBoy.park(car);
+        return ticket;
+    }
+
+    public Car fetch(ParkingTicket ticket){
+        Car car = this.parkingBoy.fetch(ticket);
+        return car;
+    }
 
     public void addParkingBoy(ParkingBoy parkingBoy) {
         this.allBoy.add(parkingBoy);
