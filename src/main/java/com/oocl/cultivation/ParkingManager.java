@@ -26,21 +26,21 @@ public class ParkingManager{
         this.allBoy.add(parkingBoy);
     }
 
-    public ParkingTicket instructPark(ParkingBoy b1, Car car) {
-        if (this.allBoy.contains(b1)) {
-            ParkingTicket ticket = b1.park(car);
-            if (b1.getLastErrorMessage()!=null)
-                System.out.println(b1.getLastErrorMessage());
+    public ParkingTicket instructPark(ParkingBoy parkingboy, Car car) {
+        if (this.allBoy.contains(parkingboy)) {
+            ParkingTicket ticket = parkingboy.park(car);
+            if (parkingboy.getLastErrorMessage()!=null)
+                System.out.println(parkingboy.getLastErrorMessage());
             return ticket;
         }
         return null;
     }
 
-    public Car instructFetch(ParkingBoy b1, ParkingTicket ticket) {
-        if (this.allBoy.contains(b1)) {
-            Car car = b1.fetch(ticket);
-            if (b1.getLastErrorMessage() != null)
-                System.out.println(b1.getLastErrorMessage());
+    public Car instructFetch(ParkingBoy parkingBoy, ParkingTicket ticket) {
+        if (this.allBoy.contains(parkingBoy)) {
+            Car car = parkingBoy.fetch(ticket);
+            if (parkingBoy.getLastErrorMessage() != null)
+                System.out.println(parkingBoy.getLastErrorMessage());
             return car;
         }
         return null;
