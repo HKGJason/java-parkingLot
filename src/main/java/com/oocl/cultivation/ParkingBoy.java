@@ -26,13 +26,16 @@ public class ParkingBoy {
         ParkingTicket ticket = new ParkingTicket();
         this.currentParkingLot = checkEmptyLot();
         if (this.currentParkingLot!=null){
-            this.currentParkingLot.parkCar(car, ticket);
-            setLastErrorMessage(null);
+            parkToLot(car, ticket);
             return ticket;
-        }else{
-            return null;
         }
+        return null;
 
+    }
+
+    private void parkToLot(Car car, ParkingTicket ticket) {
+        this.currentParkingLot.parkCar(car, ticket);
+        setLastErrorMessage(null);
     }
 
     private ParkingLot checkEmptyLot() {
