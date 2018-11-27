@@ -1,29 +1,24 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.ParkingTicket;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingManager{
     private List<ParkingBoy> allBoy = new ArrayList<>();
-    private ParkingBoy parkingBoy;
+    private ParkingBoy actParkingBoy;
     public ParkingManager(ParkingLot lot){
-        this.parkingBoy = new ParkingBoy(this);
-        parkingBoy.manageLot(lot);
+        this.actParkingBoy = new ParkingBoy(this);
+        actParkingBoy.manageLot(lot);
     }
     public ParkingManager(){}
 
     public ParkingTicket park(Car car){
-        ParkingTicket ticket = this.parkingBoy.park(car);
+        ParkingTicket ticket = this.actParkingBoy.park(car);
         return ticket;
     }
 
     public Car fetch(ParkingTicket ticket){
-        Car car = this.parkingBoy.fetch(ticket);
+        Car car = this.actParkingBoy.fetch(ticket);
         return car;
     }
 
@@ -49,5 +44,8 @@ public class ParkingManager{
             return car;
         }
         return null;
+    }
+    public void manageLot(ParkingLot lot){
+        this.actParkingBoy.manageLot(lot);
     }
 }
